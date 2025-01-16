@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  TrailerFlix
 //
 //  Created by Michelli Cristina de Paulo Lima on 12/01/25.
@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
+    var homeView: HomeView?
     var trailers: [Trailer] = []
+
+    override func loadView() {
+        super.loadView()
+        homeView = HomeView()
+        self.view = homeView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
      //   loadTrailers()
     }
   
@@ -41,7 +47,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trailers.count
