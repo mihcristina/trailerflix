@@ -9,29 +9,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
     var trailers: [Trailer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTrailers()
+        view.backgroundColor = .red
+     //   loadTrailers()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! TrailerViewController
-        vc.trailer = sender as! Trailer
-    }
+  
 
-    func loadTrailers() {
-        guard let url = Bundle.main.url(forResource: "trailers", withExtension: "json") else { return }
-        do {
-            let trailersData = try Data(contentsOf: url)
-            trailers = try JSONDecoder().decode([Trailer].self, from: trailersData)
-            tableView.reloadData()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
+//    func loadTrailers() {
+//        guard let url = Bundle.main.url(forResource: "trailers", withExtension: "json") else { return }
+//        do {
+//            let trailersData = try Data(contentsOf: url)
+//            trailers = try JSONDecoder().decode([Trailer].self, from: trailersData)
+//            tableView.reloadData()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
 
     func showTrailer(index: Int) {
         let trailer = trailers[index]
