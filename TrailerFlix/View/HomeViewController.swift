@@ -9,8 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    var homeViewModel: HomeViewModel?
     var homeView: HomeView?
-    var trailers: [Trailer] = []
 
     override func loadView() {
         super.loadView()
@@ -20,7 +20,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   loadTrailers()
+        homeViewModel = HomeViewModel()
+        homeViewModel?.delegate = self
+        homeView?.setDelegateAndDataSource(delegate: self, dataSource: self)
     }
   
 
@@ -35,36 +37,44 @@ class HomeViewController: UIViewController {
 //        }
 //    }
 
-    func showTrailer(index: Int) {
-        let trailer = trailers[index]
-        performSegue(withIdentifier: "trailerSegue", sender: trailer)
-    }
-
-    @IBAction func watchRandomTrailer(_ sender: UIButton) {
-        let randowIndex = Int(arc4random_uniform(UInt32(trailers.count)))
-        showTrailer(index: randowIndex)
-    }
 
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trailers.count
+        return homeViewModel?.numberOfTrailers() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let trailer = trailers[indexPath.row]
-        cell.textLabel?.text = trailer.title
-        cell.detailTextLabel?.text = "\(trailer.year)"
-        cell.imageView?.image = UIImage(named: "\(trailer.poster)")
+        cell.textLabel?.text = homeViewModel?.titleOfTrailer(at: indexPath.row)
+        cell.detailTextLabel?.text = homeViewModel?.yearOfTrailer(at: indexPath.row)
+        cell.imageView?.image = UIImage(named: (homeViewModel?.posterOfTrailer(at: indexPath.row)) ?? "")
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
-        showTrailer(index: index)
+        homeViewModel?.showTrailer(index: index)
+    }
+
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+
+    func didLoadTrailers() {
+        DispatchQueue.main.async {
+            self.homeView?.tableView.reloadData()
+        }
+    }
+    
+    func didFailToLoadMovies() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Erro", message: "Ocorreu um erro ao carregar os trailers. Tente novamente mais tarde!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
 
 }

@@ -17,6 +17,7 @@
 		838B9EF32D344E5100BF2137 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B9EF22D344E5100BF2137 /* Trailer.swift */; };
 		838B9EF72D39A41A00BF2137 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B9EF62D39A41A00BF2137 /* HomeView.swift */; };
 		838B9EFA2D39A58700BF2137 /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B9EF92D39A58700BF2137 /* ViewCodable.swift */; };
+		838B9EFE2D39B2F500BF2137 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B9EFD2D39B2F500BF2137 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		838B9EF22D344E5100BF2137 /* Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailer.swift; sourceTree = "<group>"; };
 		838B9EF62D39A41A00BF2137 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		838B9EF92D39A58700BF2137 /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
+		838B9EFD2D39B2F500BF2137 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		838B9EF42D39A03A00BF2137 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				838B9EFD2D39B2F500BF2137 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				838B9EED2D344ADC00BF2137 /* TrailerViewController.swift in Sources */,
 				838B9EF32D344E5100BF2137 /* Trailer.swift in Sources */,
 				838B9EDD2D34290200BF2137 /* HomeViewController.swift in Sources */,
+				838B9EFE2D39B2F500BF2137 /* HomeViewModel.swift in Sources */,
 				838B9EF72D39A41A00BF2137 /* HomeView.swift in Sources */,
 				838B9EFA2D39A58700BF2137 /* ViewCodable.swift in Sources */,
 				838B9ED92D34290200BF2137 /* AppDelegate.swift in Sources */,

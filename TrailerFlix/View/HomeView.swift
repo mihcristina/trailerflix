@@ -9,7 +9,7 @@ import UIKit
 
 class HomeView: UIView {
 
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Como deseja ver seus TRAILERS?"
@@ -18,7 +18,7 @@ class HomeView: UIView {
         return label
     }()
     
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
        let tableview = UITableView()
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableview.translatesAutoresizingMaskIntoConstraints = false
