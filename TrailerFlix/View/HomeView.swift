@@ -21,7 +21,9 @@ class HomeView: UIView {
     lazy var tableView: UITableView = {
        let tableview = UITableView()
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableview.backgroundColor = .clear
         tableview.translatesAutoresizingMaskIntoConstraints = false
+        tableview.separatorStyle = .none
         return tableview
     }()
 
@@ -59,7 +61,10 @@ extension HomeView: ViewCodable {
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
 
             tableView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 15),
-            tableView.leadingAnchor.constraint(equalTo: self.tableView.leadingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
         ])
     }
 

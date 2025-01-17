@@ -16,13 +16,14 @@ class HomeViewController: UIViewController {
         super.loadView()
         homeView = HomeView()
         self.view = homeView
+        homeView?.setDelegateAndDataSource(delegate: self, dataSource: self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewModel = HomeViewModel()
         homeViewModel?.delegate = self
-        homeView?.setDelegateAndDataSource(delegate: self, dataSource: self)
+        homeViewModel?.loadTrailersFromJson()
     }
 
 }
@@ -38,6 +39,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = homeViewModel?.titleOfTrailer(at: indexPath.row)
         cell.detailTextLabel?.text = homeViewModel?.yearOfTrailer(at: indexPath.row)
         cell.imageView?.image = UIImage(named: (homeViewModel?.posterOfTrailer(at: indexPath.row)) ?? "")
+        cell.backgroundColor = .clear
         return cell
     }
 
@@ -52,7 +54,7 @@ extension HomeViewController: HomeViewModelDelegate {
 
     func didLoadTrailers() {
         DispatchQueue.main.async {
-            self.homeView?.tableView.reloadData()
+            self.homeView?.reloadData()
         }
     }
     

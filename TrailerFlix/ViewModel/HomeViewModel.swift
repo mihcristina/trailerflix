@@ -60,6 +60,7 @@ class HomeViewModel {
 
     func showTrailer(index: Int) {
         let trailer = trailers[index]
+        
     }
 
 }
