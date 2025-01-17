@@ -24,19 +24,6 @@ class HomeViewController: UIViewController {
         homeViewModel?.delegate = self
         homeView?.setDelegateAndDataSource(delegate: self, dataSource: self)
     }
-  
-
-//    func loadTrailers() {
-//        guard let url = Bundle.main.url(forResource: "trailers", withExtension: "json") else { return }
-//        do {
-//            let trailersData = try Data(contentsOf: url)
-//            trailers = try JSONDecoder().decode([Trailer].self, from: trailersData)
-//            tableView.reloadData()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
-
 
 }
 
