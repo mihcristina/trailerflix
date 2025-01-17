@@ -66,10 +66,8 @@
 		838B9ED72D34290200BF2137 /* TrailerFlix */ = {
 			isa = PBXGroup;
 			children = (
+				838B9EFF2D3A8B0600BF2137 /* Home */,
 				838B9EF82D39A57A00BF2137 /* Utils */,
-				838B9EF52D39A04700BF2137 /* View */,
-				838B9EF42D39A03A00BF2137 /* ViewModel */,
-				838B9EF02D344E3100BF2137 /* Model */,
 				838B9EEE2D344E0800BF2137 /* trailers.json */,
 				838B9ED82D34290200BF2137 /* AppDelegate.swift */,
 				838B9EDA2D34290200BF2137 /* SceneDelegate.swift */,
@@ -112,6 +110,16 @@
 				838B9EF92D39A58700BF2137 /* ViewCodable.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		838B9EFF2D3A8B0600BF2137 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				838B9EF02D344E3100BF2137 /* Model */,
+				838B9EF42D39A03A00BF2137 /* ViewModel */,
+				838B9EF52D39A04700BF2137 /* View */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
