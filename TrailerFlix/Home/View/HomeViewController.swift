@@ -66,4 +66,8 @@ extension HomeViewController: HomeViewModelDelegate {
         }
     }
 
+    func navigateToTrailerDetails(trailer: Trailer) {
+        let trailerViewController = TrailerViewController(trailer: trailer)
+        navigationController?.pushViewController(trailerViewController, animated: true)
+    }
 }

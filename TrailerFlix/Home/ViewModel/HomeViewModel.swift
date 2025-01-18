@@ -10,6 +10,7 @@ import Foundation
 protocol HomeViewModelDelegate: AnyObject {
     func didLoadTrailers()
     func didFailToLoadMovies()
+    func navigateToTrailerDetails(trailer: Trailer)
 }
 
 class HomeViewModel {
@@ -60,7 +61,7 @@ class HomeViewModel {
 
     func showTrailer(index: Int) {
         let trailer = trailers[index]
-        
+        delegate?.navigateToTrailerDetails(trailer: trailer)
     }
 
 }
