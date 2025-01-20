@@ -8,22 +8,19 @@
 import UIKit
 
 class TrailerView: UIView {
-    //    @IBOutlet weak var lbYear: UILabel!
-    //    @IBOutlet weak var viTrailer: UIView!
-    //    @IBOutlet weak var lbRating: UILabel!
 
     var ivTrailer: String?
     var lbTitle: String?
     var lbYear: String?
-    var lbRating: String?
-
+    var lbRating: Int?
+    
     private lazy var imageViewTrailer: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: ivTrailer ?? "")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-
+    
     private lazy var labelTitle: UILabel = {
         let label = UILabel()
         label.text = self.lbTitle
@@ -32,7 +29,7 @@ class TrailerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private lazy var labelYear: UILabel = {
         let label = UILabel()
         label.text = self.lbYear
@@ -41,20 +38,63 @@ class TrailerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private lazy var labelRating: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .lightGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
-    init(ivTrailer: String?, lbTitle: String?, lbYear: String?, lbRating: String?) {
+    private lazy var trailerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    init(ivTrailer: String?, lbTitle: String?, lbYear: String?, lbRating: Int?) {
         self.ivTrailer = ivTrailer
         self.lbTitle = lbTitle
         self.lbYear = lbYear
         self.lbRating = lbRating
         super.init(frame: .zero)
         setupView()
+        prepareLabelRatingComponent()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func prepareLabelRatingComponent() {
+        prepareRating { rating in
+            self.labelRating.text = rating
+        }
+    }
+
+    func prepareRating(completion: @escaping (String) -> Void) {
+        
+        DispatchQueue.global().async {
+            let trailerRating = self.fetchRatingFromServer()
+            var rating = ""
+            
+            if trailerRating > 0 {
+                rating = ""
+                for _ in 1...trailerRating {
+                    rating += "⭐️"
+                }
+            }
+            DispatchQueue.main.async {
+                completion(rating)
+            }
+        }
+    }
+
+    func fetchRatingFromServer() -> Int {
+        sleep(1)
+        return self.lbRating ?? 0
+    }
 }
 
 extension TrailerView: ViewCodable {
@@ -63,6 +103,7 @@ extension TrailerView: ViewCodable {
         addSubview(imageViewTrailer)
         addSubview(labelTitle)
         addSubview(labelYear)
+        addSubview(labelRating)
     }
 
     func configureView() {
@@ -82,7 +123,9 @@ extension TrailerView: ViewCodable {
             
             labelYear.topAnchor.constraint(equalTo: self.labelTitle.bottomAnchor, constant: 10),
             labelYear.leadingAnchor.constraint(equalTo: self.imageViewTrailer.trailingAnchor, constant: 10),
-            labelYear.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+
+            labelRating.topAnchor.constraint(equalTo: self.labelTitle.bottomAnchor, constant: 10),
+            labelRating.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
         ])
     }
 
