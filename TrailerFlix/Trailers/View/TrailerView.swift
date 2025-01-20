@@ -47,7 +47,7 @@ class TrailerView: UIView {
         return label
     }()
 
-    private lazy var trailerView: UIView = {
+    lazy var trailerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
