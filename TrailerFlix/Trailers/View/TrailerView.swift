@@ -49,6 +49,7 @@ class TrailerView: UIView {
 
     private lazy var trailerView: UIView = {
         let view = UIView()
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -104,6 +105,7 @@ extension TrailerView: ViewCodable {
         addSubview(labelTitle)
         addSubview(labelYear)
         addSubview(labelRating)
+        addSubview(trailerView)
     }
 
     func configureView() {
@@ -126,6 +128,11 @@ extension TrailerView: ViewCodable {
 
             labelRating.topAnchor.constraint(equalTo: self.labelTitle.bottomAnchor, constant: 10),
             labelRating.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+
+            trailerView.topAnchor.constraint(equalTo: self.labelYear.bottomAnchor, constant: 10),
+            trailerView.leadingAnchor.constraint(equalTo: self.imageViewTrailer.trailingAnchor, constant: 10),
+            trailerView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            trailerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
 
