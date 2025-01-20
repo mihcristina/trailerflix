@@ -71,3 +71,11 @@ extension HomeViewController: HomeViewModelDelegate {
         navigationController?.pushViewController(trailerViewController, animated: true)
     }
 }
+
+extension HomeViewController: HomeViewDelegate {
+
+    func tappedRandonButton() {
+        
+    }
+
+}

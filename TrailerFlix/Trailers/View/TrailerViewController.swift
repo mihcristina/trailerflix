@@ -22,7 +22,11 @@ class TrailerViewController: UIViewController {
     var playerController: AVPlayerViewController!
 
     override func loadView() {
-        trailerView = TrailerView(ivTrailer: trailer?.poster)
+        super.loadView()
+        guard let trailer = trailer else {
+                return
+            }
+        trailerView = TrailerView(ivTrailer: trailer.poster, lbTitle: trailer.title, lbYear: String(trailer.year), lbRating: String(trailer.rating))
         self.view = trailerView
     }
 

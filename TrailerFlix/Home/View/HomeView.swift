@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol HomeViewDelegate: AnyObject {
+    func tappedRandonButton()
+}
+
 class HomeView: UIView {
+
+    weak var delegate: HomeViewDelegate?
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -39,6 +45,7 @@ class HomeView: UIView {
         let button = UIButton()
         button.setTitle("Assistir Trailer aleatório", for: .normal)
         button.setTitleColor(UIColor(red: 220/255, green: 75/255, blue: 70/255, alpha: 1.0), for: .normal)
+        button.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -50,6 +57,10 @@ class HomeView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func tappedButton() {
+        delegate?.tappedRandonButton()
     }
 
     func setDelegateAndDataSource(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
