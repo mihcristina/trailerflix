@@ -52,6 +52,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController: HomeViewModelDelegate {
 
+    func navigateToRandowTrailerDetails(trailer: Trailer) {
+        let trailerViewController = TrailerViewController(trailer: trailer)
+        navigationController?.pushViewController(trailerViewController, animated: true)
+    }
+
     func didLoadTrailers() {
         DispatchQueue.main.async {
             self.homeView?.reloadData()
@@ -73,7 +78,6 @@ extension HomeViewController: HomeViewModelDelegate {
 }
 
 extension HomeViewController: HomeViewDelegate {
-
     func tappedRandonButton() {
         
     }

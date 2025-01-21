@@ -7,21 +7,21 @@
 	},
 	{
 		"title": "Liga da Justiça",
-		"url": "http://trailers.apple.com/movies/wb/justiceleague/justice-league-trailer-3_h720p.mov",
+		"url": "ligadajustica",
 		"rating": 0,
 		"year": 2017,
 		"poster": "ligajustica"
 	},
 	{
 		"title": "Star Wars: The Last Jedi",
-		"url": "http://trailers.apple.com/movies/lucasfilm/star-wars-the-last-jedi/star-wars-the-last-jedi-trailer-2_h720p.mov",
+		"url": "starwars",
 		"rating": 0,
 		"year": 2017,
 		"poster": "lastjedi"
 	},
 	{
 		"title": "Mãe!",
-		"url": "http://trailers.apple.com/movies/paramount/mother/mother-clip-full_h720p.mov",
+		"url": "mae",
 		"rating": 7,
 		"year": 2017,
 		"poster": "mother"

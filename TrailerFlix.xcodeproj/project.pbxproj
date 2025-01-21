@@ -21,6 +21,9 @@
 		838B9F032D3AC2CA00BF2137 /* TrailerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B9F022D3AC2CA00BF2137 /* TrailerView.swift */; };
 		83BBC8D42D3F00D800ED507E /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BBC8D32D3F00D800ED507E /* TrailerViewModel.swift */; };
 		83BBC8D62D3F0C8900ED507E /* it.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 83BBC8D52D3F0C8900ED507E /* it.mp4 */; };
+		83BBC8D92D3F0F0300ED507E /* ligadajustica.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 83BBC8D82D3F0F0300ED507E /* ligadajustica.mp4 */; };
+		83BBC8DB2D3F0FA000ED507E /* starwars.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 83BBC8DA2D3F0FA000ED507E /* starwars.mp4 */; };
+		83BBC8DD2D3F105E00ED507E /* mae.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 83BBC8DC2D3F105E00ED507E /* mae.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		838B9F022D3AC2CA00BF2137 /* TrailerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerView.swift; sourceTree = "<group>"; };
 		83BBC8D32D3F00D800ED507E /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 		83BBC8D52D3F0C8900ED507E /* it.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = it.mp4; sourceTree = "<group>"; };
+		83BBC8D82D3F0F0300ED507E /* ligadajustica.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ligadajustica.mp4; sourceTree = "<group>"; };
+		83BBC8DA2D3F0FA000ED507E /* starwars.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = starwars.mp4; sourceTree = "<group>"; };
+		83BBC8DC2D3F105E00ED507E /* mae.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mae.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,9 @@
 		83BBC8D72D3F0DE000ED507E /* TrailersFiles */ = {
 			isa = PBXGroup;
 			children = (
+				83BBC8DC2D3F105E00ED507E /* mae.mp4 */,
+				83BBC8DA2D3F0FA000ED507E /* starwars.mp4 */,
+				83BBC8D82D3F0F0300ED507E /* ligadajustica.mp4 */,
 				83BBC8D52D3F0C8900ED507E /* it.mp4 */,
 			);
 			path = TrailersFiles;
@@ -224,6 +233,9 @@
 				838B9EE22D34290500BF2137 /* Assets.xcassets in Resources */,
 				838B9EE52D34290500BF2137 /* Base in Resources */,
 				83BBC8D62D3F0C8900ED507E /* it.mp4 in Resources */,
+				83BBC8DD2D3F105E00ED507E /* mae.mp4 in Resources */,
+				83BBC8D92D3F0F0300ED507E /* ligadajustica.mp4 in Resources */,
+				83BBC8DB2D3F0FA000ED507E /* starwars.mp4 in Resources */,
 				838B9EEF2D344E0800BF2137 /* trailers.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

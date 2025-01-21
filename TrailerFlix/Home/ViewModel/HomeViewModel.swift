@@ -11,6 +11,7 @@ protocol HomeViewModelDelegate: AnyObject {
     func didLoadTrailers()
     func didFailToLoadMovies()
     func navigateToTrailerDetails(trailer: Trailer)
+    func navigateToRandowTrailerDetails(trailer: Trailer)
 }
 
 class HomeViewModel {
@@ -56,7 +57,8 @@ class HomeViewModel {
 
     func watchRandomTrailer() {
         let randowIndex = Int(arc4random_uniform(UInt32(trailers.count)))
-        showTrailer(index: randowIndex)
+        let trailer = trailers[randowIndex]
+        delegate?.navigateToRandowTrailerDetails(trailer: trailer)
     }
 
     func showTrailer(index: Int) {
